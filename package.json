@@ -1,29 +1,36 @@
 {
-  "dependencies": {
-    "prop-types": "^15.5.8",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
-  },
-  "devDependencies": {
-    "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^4.3.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0",
-    "react-scripts": "0.9.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "commit": "git-cz",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+    "name": "myreads-project",
+    "version": "0.0.1",
+    "description": "An Udemy react exame",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/aluis92/reactnd-project-myreads-starter"
+    },
+    "dependencies": {
+        "prop-types": "^15.5.8",
+        "react": "^15.5.4",
+        "react-dom": "^15.5.4"
+    },
+    "devDependencies": {
+        "commitizen": "^2.9.6",
+        "cz-conventional-changelog": "^2.0.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^15.1.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jsx-a11y": "^5.1.1",
+        "eslint-plugin-react": "^7.1.0",
+        "react-scripts": "0.9.5"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "commit": "git-cz",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
-  }
 }
