@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     arrayOf,
-    string
+    shape,
+    string,
 } from 'prop-types';
 import ShelfChanger from '../ShelfChanger';
 
@@ -33,13 +34,15 @@ function Book({
 }
 
 Book.defaultProps = {
-    imageLinks: '',
+    imageLinks: {},
     authors: [],
     title: '',
 };
 
 Book.propTypes = {
-    imageLinks: string.isRequired,
+    imageLinks: shape({
+        thumbnail: string
+    }).isRequired,
     authors: arrayOf(string),
     title: string.isRequired,
 };
