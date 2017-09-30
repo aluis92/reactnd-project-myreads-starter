@@ -9,6 +9,7 @@
     "dependencies": {
         "prop-types": "^15.5.8",
         "react": "^15.5.4",
+        "react-dom": "^15.6.1",
         "react-router-dom": "^4.2.2",
         "styled-components": "^2.1.2"
     },
@@ -18,10 +19,10 @@
         "enzyme": "^2.9.1",
         "eslint": "^4.3.0",
         "eslint-config-airbnb": "^15.1.0",
+        "eslint-plugin-babel": "^4.1.2",
         "eslint-plugin-import": "^2.7.0",
         "eslint-plugin-jsx-a11y": "^5.1.1",
         "eslint-plugin-react": "^7.1.0",
-        "react-dom": "^15.6.1",
         "react-scripts": "^1.0.13",
         "react-test-renderer": "^15.6.1"
     },
@@ -30,7 +31,8 @@
         "build": "react-scripts build",
         "commit": "git-cz",
         "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "lint": "eslint ./src --fix"
     },
     "config": {
         "commitizen": {
