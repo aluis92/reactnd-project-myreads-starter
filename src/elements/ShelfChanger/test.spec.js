@@ -1,7 +1,6 @@
 import React from 'react';
-import { 
+import {
     shallow,
-    mount
 } from 'enzyme';
 
 import ShelfChanger from './index';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import arrowDropDown from '../../assets/icons/arrow-drop-down.svg'
+import arrowDropDown from '../../assets/icons/arrow-drop-down.svg';
 
 export const Container = styled.div`
     position: absolute;

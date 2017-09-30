@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import arrowDropDown from '../../assets/icons/arrow-drop-down.svg'
 
 const bookFontSize = css`
     font-size: 0.8em;

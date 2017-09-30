@@ -2,8 +2,8 @@ import React from 'react';
 
 import {
     Container,
-    Select
-} from './styles'
+    Select,
+} from './styles';
 
 function ShelfChanger() {
     return (

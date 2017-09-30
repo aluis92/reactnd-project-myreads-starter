@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import arrowDropDown from '../../assets/icons/arrow-drop-down.svg'
 
 export const Container = styled.div`
     padding: 0 10px 20px;

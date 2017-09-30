@@ -1,50 +1,42 @@
 import React, { Component } from 'react';
 import {
     BrowserRouter,
-    Route
+    Route,
 } from 'react-router-dom';
 import Home from './pages/Home';
 import Search from './pages/Search';
+import bookshelfFactory from './utils/bookshelfFactory';
+
 import * as BooksAPI from './services/BooksAPI';
 
 import './App.css';
 
-class BooksApp extends Component {
+class App extends Component {
     state = {
-        bookList: []
+        bookList: [],
     }
 
     componentDidMount() {
         BooksAPI.getAll()
-            .then(this.bookshelfFactory)
-            .then(bookList => this.setState({ bookList }))
-    }
-
-    bookshelfFactory(books) {
-        return books.reduce((storedBooks, nextBook) => {
-            storedBooks[nextBook.shelf] && storedBooks[nextBook.shelf].push(nextBook);
-            return storedBooks;
-        },
-        {
-            currentlyReading: [],
-            wantToRead: [],
-            read: [],
-        });
+            .then(bookshelfFactory)
+            .then(bookList => this.setState({ bookList }));
     }
 
     render() {
         const {
-            bookList
+            bookList,
         } = this.state;
-        
-        return(
+
+        return (
             <BrowserRouter>
                 <div>
-                    <Route exact
+                    <Route
+                        exact
                         path="/"
                         render={() => <Home bookList={bookList} />}
                     />
-                    <Route exact
+                    <Route
+                        exact
                         path="/search"
                         component={Search}
                     />
@@ -54,4 +46,4 @@ class BooksApp extends Component {
     }
 }
 
-export default BooksApp
+export default App;

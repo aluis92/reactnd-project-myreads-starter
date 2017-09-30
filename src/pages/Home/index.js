@@ -1,9 +1,13 @@
 import React from 'react';
+import {
+    shape,
+    array,
+} from 'prop-types';
 import { Link } from 'react-router-dom';
 import Bookshelf from '../../modules/Bookshelf';
 
-function Home ({
-    bookList
+function Home({
+    bookList,
 }) {
     return (
         <div className="list-books">
@@ -32,5 +36,17 @@ function Home ({
         </div>
     );
 }
+
+Home.defaultProps = {
+    bookList: null,
+};
+
+Home.propTypes = {
+    bookList: shape({
+        currentlyReading: array,
+        wantToRead: array,
+        read: array,
+    }),
+};
 
 export default Home;

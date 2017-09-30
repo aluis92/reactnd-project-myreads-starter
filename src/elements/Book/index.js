@@ -17,13 +17,13 @@ import {
 function Book({
     imageLinks,
     authors,
-    title
+    title,
 }) {
     return (
         <li>
             <Container className="book">
                 <BookTop>
-                    <BookCover style={{backgroundImage: `url(${imageLinks.thumbnail})` }} />
+                    <BookCover style={{ backgroundImage: `url(${imageLinks.thumbnail})` }} />
                     <ShelfChanger />
                 </BookTop>
                 <BookTitle>{title}</BookTitle>
@@ -41,7 +41,7 @@ Book.defaultProps = {
 
 Book.propTypes = {
     imageLinks: shape({
-        thumbnail: string
+        thumbnail: string,
     }).isRequired,
     authors: arrayOf(string),
     title: string.isRequired,

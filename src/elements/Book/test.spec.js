@@ -1,7 +1,6 @@
 import React from 'react';
-import { 
+import {
     shallow,
-    mount
 } from 'enzyme';
 
 import Book from './index';
@@ -16,8 +15,8 @@ describe('Book component', () => {
     it('should render without crashing', () => {
         shallow(
             <Book
-             {...bookProps}
-            />
+                {...bookProps}
+            />,
         );
     });
 });

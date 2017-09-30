@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Search() {
@@ -7,7 +7,8 @@ function Search() {
             <div className="search-books-bar">
                 <Link
                     className="close-search"
-                    to="/">
+                    to="/"
+                >
                     Close
                 </Link>
                 <div className="search-books-input-wrapper">
@@ -15,7 +16,7 @@ function Search() {
                 </div>
             </div>
             <div className="search-books-results">
-                <ol className="books-grid"></ol>
+                <ol className="books-grid" />
             </div>
         </div>
     );
