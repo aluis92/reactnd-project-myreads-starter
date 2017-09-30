@@ -4,6 +4,7 @@ import {
     array,
 } from 'prop-types';
 import { Link } from 'react-router-dom';
+import BookListTitle from '../../elements/BookListTitle';
 import Bookshelf from '../../modules/Bookshelf';
 
 function Home({
@@ -11,10 +12,8 @@ function Home({
 }) {
     return (
         <div className="list-books">
-            <div className="list-books-title">
-                <h1>MyReads</h1>
-            </div>
             <div className="list-books-content">
+                <BookListTitle title="MyReads" />
                 <div>
                     <Bookshelf
                         title="Currently Reading"
