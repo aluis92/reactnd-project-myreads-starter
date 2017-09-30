@@ -12,6 +12,7 @@ export const Container = styled.div`
 
 export const BookshelfTitle = styled.h2`
     border-bottom: 1px solid #dedede;
+    text-transform: capitalize;
 `;
 
 export const BookshelfBooks = styled.div`

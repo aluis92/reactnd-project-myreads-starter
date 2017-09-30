@@ -20,7 +20,7 @@ function Home({
                     shelves.map(shelf => bookList[shelf].length > 0 && (
                         <Bookshelf
                             key={shelf}
-                            title={shelf}
+                            title={shelf.replace(/[A-Z]/g, letter => ` ${letter}`)}
                             books={bookList[shelf]}
                             onChangeShelf={updateBook}
                         />

@@ -21,7 +21,10 @@ function Bookshelf({
 }) {
     return (
         <Container>
-            <BookshelfTitle>{title}</BookshelfTitle>
+            {
+                title &&
+                <BookshelfTitle>{title}</BookshelfTitle>
+            }
             <BookshelfBooks>
                 <BooksGrid>
                     {
