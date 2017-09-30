@@ -1,7 +1,11 @@
-function bookshelfFactory(books) {
+function bookshelfFactory(books = []) {
     return books.reduce((storedBooks, nextBook) => {
-        const newStoredBooks =
-            storedBooks[nextBook.shelf] && storedBooks[nextBook.shelf].push(nextBook);
+        const newStoredBooks = storedBooks;
+
+        if (newStoredBooks[nextBook.shelf]) {
+            newStoredBooks[nextBook.shelf].push(nextBook);
+        }
+
         return newStoredBooks;
     },
     {
