@@ -3,38 +3,29 @@ import {
     shape,
     array,
 } from 'prop-types';
-import BookListTitle from '../../elements/BookListTitle';
-import OpenSearch from '../../elements/OpenSearch';
+import ListBooks from '../../modules/ListBooks';
 import Bookshelf from '../../modules/Bookshelf';
 
 function Home({
     bookList,
 }) {
     return (
-        <div className="list-books">
-            <div className="list-books-content">
-                <BookListTitle title="MyReads" />
-                <div>
-                    <Bookshelf
-                        title="Currently Reading"
-                        books={bookList.currentlyReading}
-                    />
-                    <Bookshelf
-                        title="Want To Read"
-                        books={bookList.wantToRead}
-                    />
-                    <Bookshelf
-                        title="Read"
-                        books={bookList.read}
-                    />
-                </div>
+        <ListBooks title="MyReads">
+            <div>
+                <Bookshelf
+                    title="Currently Reading"
+                    books={bookList.currentlyReading}
+                />
+                <Bookshelf
+                    title="Want To Read"
+                    books={bookList.wantToRead}
+                />
+                <Bookshelf
+                    title="Read"
+                    books={bookList.read}
+                />
             </div>
-
-            <OpenSearch
-                to="/search"
-                text="Add a book"
-            />
-        </div>
+        </ListBooks>
     );
 }
 

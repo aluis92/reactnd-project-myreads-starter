@@ -10,11 +10,6 @@ body, .app {
 
 /* main page */
 
-.list-books-content {
-  padding: 0 0 80px;
-  flex: 1;
-}
-
 /* search page */
 
 .search-books-bar {

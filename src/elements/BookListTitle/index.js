@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { node } from 'prop-types';
 
 import {
     Container,
@@ -7,17 +7,17 @@ import {
 } from './styles';
 
 function BookListTitle({
-    title,
+    children,
 }) {
     return (
         <Container>
-            <Title>{title}</Title>
+            <Title>{children}</Title>
         </Container>
     );
 }
 
 BookListTitle.propTypes = {
-    title: string.isRequired,
+    children: node.isRequired,
 };
 
 export default BookListTitle;

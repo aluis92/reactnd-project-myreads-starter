@@ -3,16 +3,17 @@ import {
     shallow,
 } from 'enzyme';
 
-import BookListTitle from './index';
+import OpenSearch from './index';
 
-describe('BookListTitle component', () => {
+describe('OpenSearch component', () => {
     const props = {
         title: 'ok',
+        to: '/',
     };
 
     it('should render without crashing', () => {
         shallow(
-            <BookListTitle
+            <OpenSearch
                 {...props}
             />,
         );
