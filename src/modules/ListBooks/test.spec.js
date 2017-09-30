@@ -3,10 +3,10 @@ import {
     shallow,
 } from 'enzyme';
 
-import Bookshelf from './index';
+import ListBooks from './index';
 
-describe('Bookshelf component', () => {
+describe('ListBooks component', () => {
     it('should render without crashing', () => {
-        shallow(<Bookshelf />);
+        shallow(<ListBooks />);
     });
 });

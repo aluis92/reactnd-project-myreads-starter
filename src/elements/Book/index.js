@@ -15,8 +15,10 @@ import {
 } from './styles';
 
 function Book({
-    imageLinks,
     authors,
+    id,
+    imageLinks,
+    onChangeShelf,
     title,
 }) {
     return (
@@ -24,7 +26,7 @@ function Book({
             <Container className="book">
                 <BookTop>
                     <BookCover style={{ backgroundImage: `url(${imageLinks.thumbnail})` }} />
-                    <ShelfChanger />
+                    <ShelfChanger onChangeShelf={value => onChangeShelf(id, value)} />
                 </BookTop>
                 <BookTitle>{title}</BookTitle>
                 <BookAuthors>{authors.join(', ')}</BookAuthors>
@@ -34,17 +36,19 @@ function Book({
 }
 
 Book.defaultProps = {
-    imageLinks: {},
     authors: [],
+    imageLinks: {},
     title: '',
 };
 
 Book.propTypes = {
+    authors: arrayOf(string),
+    id: string.isRequired,
     imageLinks: shape({
         thumbnail: string,
     }).isRequired,
-    authors: arrayOf(string),
     title: string.isRequired,
+    ...ShelfChanger.propTypes,
 };
 
 export default Book;

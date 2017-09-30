@@ -1,15 +1,18 @@
 import React from 'react';
+import { func } from 'prop-types';
 
 import {
     Container,
     Select,
 } from './styles';
 
-function ShelfChanger() {
+function ShelfChanger({
+    onChangeShelf,
+}) {
     return (
         <Container>
-            <Select>
-                <option value="none" disabled>Move to...</option>
+            <Select defaultValue="" onChange={e => onChangeShelf(e.target.value)}>
+                <option value="" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>
@@ -18,5 +21,9 @@ function ShelfChanger() {
         </Container>
     );
 }
+
+ShelfChanger.propTypes = {
+    onChangeShelf: func.isRequired,
+};
 
 export default ShelfChanger;

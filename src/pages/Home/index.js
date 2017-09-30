@@ -2,28 +2,30 @@ import React from 'react';
 import {
     shape,
     array,
+    func,
 } from 'prop-types';
 import ListBooks from '../../modules/ListBooks';
 import Bookshelf from '../../modules/Bookshelf';
 
 function Home({
     bookList,
+    updateBook,
 }) {
+    const shelves = Object.keys(bookList);
+
     return (
         <ListBooks title="MyReads">
             <div>
-                <Bookshelf
-                    title="Currently Reading"
-                    books={bookList.currentlyReading}
-                />
-                <Bookshelf
-                    title="Want To Read"
-                    books={bookList.wantToRead}
-                />
-                <Bookshelf
-                    title="Read"
-                    books={bookList.read}
-                />
+                {
+                    shelves.map(shelf => bookList[shelf].length > 0 && (
+                        <Bookshelf
+                            key={shelf}
+                            title={shelf}
+                            books={bookList[shelf]}
+                            onChangeShelf={updateBook}
+                        />
+                    ))
+                }
             </div>
         </ListBooks>
     );
@@ -39,6 +41,7 @@ Home.propTypes = {
         wantToRead: array,
         read: array,
     }),
+    updateBook: func.isRequired,
 };
 
 export default Home;

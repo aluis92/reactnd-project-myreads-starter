@@ -1,10 +1,11 @@
 import React from 'react';
 import {
     arrayOf,
-    shape,
+    object,
     string,
 } from 'prop-types';
 import Book from '../../elements/Book';
+import ShelfChanger from '../../elements/ShelfChanger';
 
 import {
     Container,
@@ -16,6 +17,7 @@ import {
 function Bookshelf({
     books,
     title,
+    onChangeShelf,
 }) {
     return (
         <Container>
@@ -26,11 +28,11 @@ function Bookshelf({
                         books.map(book => (
                             <Book
                                 key={book.id}
+                                onChangeShelf={onChangeShelf}
                                 {...book}
                             />
                         ))
                     }
-
                 </BooksGrid>
             </BookshelfBooks>
         </Container>
@@ -43,10 +45,9 @@ Bookshelf.defaultProps = {
 };
 
 Bookshelf.propTypes = {
-    books: arrayOf(
-        shape(Book.propTypes),
-    ),
+    books: arrayOf(object),
     title: string,
+    ...ShelfChanger.propTypes,
 };
 
 export default Bookshelf;

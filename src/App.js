@@ -13,13 +13,27 @@ import './App.css';
 
 class App extends Component {
     state = {
-        bookList: [],
+        allBooks: [],
+        bookList: {
+            currentlyReading: [],
+            read: [],
+            wantToRead: [],
+        },
     }
 
     componentDidMount() {
+        this.getAllBooks();
+    }
+
+    getAllBooks() {
         BooksAPI.getAll()
             .then(bookshelfFactory)
             .then(bookList => this.setState({ bookList }));
+    }
+
+    updateBook = (bookId, shelf) => {
+        BooksAPI.update(bookId, shelf)
+            .then(() => this.getAllBooks());
     }
 
     render() {
@@ -33,7 +47,12 @@ class App extends Component {
                     <Route
                         exact
                         path="/"
-                        render={() => <Home bookList={bookList} />}
+                        render={() => (
+                            <Home
+                                bookList={bookList}
+                                updateBook={this.updateBook}
+                            />
+                        )}
                     />
                     <Route
                         exact
