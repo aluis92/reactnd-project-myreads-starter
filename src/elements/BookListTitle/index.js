@@ -10,15 +10,11 @@ function BookListTitle({
     title,
 }) {
     return (
-        <Container className="list-books-title">
+        <Container>
             <Title>{title}</Title>
         </Container>
     );
 }
-
-BookListTitle.defaultProps = {
-    title: '',
-};
 
 BookListTitle.propTypes = {
     title: string.isRequired,

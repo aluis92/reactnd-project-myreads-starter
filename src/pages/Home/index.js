@@ -3,8 +3,8 @@ import {
     shape,
     array,
 } from 'prop-types';
-import { Link } from 'react-router-dom';
 import BookListTitle from '../../elements/BookListTitle';
+import OpenSearch from '../../elements/OpenSearch';
 import Bookshelf from '../../modules/Bookshelf';
 
 function Home({
@@ -29,9 +29,11 @@ function Home({
                     />
                 </div>
             </div>
-            <div className="open-search">
-                <Link to="/search">Add a book</Link>
-            </div>
+
+            <OpenSearch
+                to="/search"
+                text="Add a book"
+            />
         </div>
     );
 }
