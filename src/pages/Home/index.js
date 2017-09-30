@@ -6,6 +6,7 @@ import {
 } from 'prop-types';
 import ListBooks from '../../modules/ListBooks';
 import Bookshelf from '../../modules/Bookshelf';
+import parseCamelCase from '../../utils/parseCamelCase';
 
 function Home({
     bookList,
@@ -20,7 +21,7 @@ function Home({
                     shelves.map(shelf => bookList[shelf].length > 0 && (
                         <Bookshelf
                             key={shelf}
-                            title={shelf.replace(/[A-Z]/g, letter => ` ${letter}`)}
+                            title={parseCamelCase(shelf)}
                             books={bookList[shelf]}
                             onChangeShelf={updateBook}
                         />
