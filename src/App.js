@@ -9,8 +9,6 @@ import bookshelfFactory from './utils/bookshelfFactory';
 
 import * as BooksAPI from './services/BooksAPI';
 
-import './App.css';
-
 class App extends Component {
     state = {
         bookList: {
@@ -31,12 +29,12 @@ class App extends Component {
             .then(bookList => this.setState({ bookList }));
     }
 
-    updateBook = (bookId, shelf) => {
+    updateBook = (bookId, shelf) => (
         BooksAPI.update(bookId, shelf)
-            .then(() => this.getAllBooks());
-    }
+            .then(() => this.getAllBooks())
+    )
 
-    searchBooks = (query) => {
+    searchBooks = query => (
         BooksAPI.search(query)
             .then((searchResults) => {
                 if (Array.isArray(searchResults)) {
@@ -44,8 +42,8 @@ class App extends Component {
                 }
                 return [];
             })
-            .then(searchResults => this.setState({ searchResults }));
-    }
+            .then(searchResults => this.setState({ searchResults }))
+    )
 
     render() {
         const {

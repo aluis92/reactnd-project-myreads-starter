@@ -3,6 +3,7 @@ import { func } from 'prop-types';
 
 import {
     Container,
+    Content,
     SearchInput,
     CloseSearch,
     SearchInputWrapper,
@@ -13,14 +14,16 @@ function SearchBooksBar({
 }) {
     return (
         <Container>
-            <CloseSearch to="/">Close</CloseSearch>
-            <SearchInputWrapper>
-                <SearchInput
-                    type="text"
-                    placeholder="Search by title or author"
-                    onChange={e => onSearch(e.target.value)}
-                />
-            </SearchInputWrapper>
+            <Content>
+                <CloseSearch to="/">Close</CloseSearch>
+                <SearchInputWrapper>
+                    <SearchInput
+                        type="text"
+                        placeholder="Search by title or author"
+                        onChange={e => onSearch(e.target.value)}
+                    />
+                </SearchInputWrapper>
+            </Content>
         </Container>
     );
 }

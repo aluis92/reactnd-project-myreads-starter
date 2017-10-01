@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import backArrow from '../../assets/icons/arrow-back.svg';
 
 export const Container = styled.header`
+    padding: 50px 10px 20px;
+`;
+
+export const Content = styled.div`
     position: fixed;
     width: 100%;
     top: 0;

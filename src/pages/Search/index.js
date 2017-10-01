@@ -14,8 +14,8 @@ class Search extends Component {
 
     onSearch = (query) => {
         if (query && query.length > 0) {
-            this.props.onSearch(query);
-            this.setState({ emptyQuery: false });
+            this.props.onSearch(query)
+                .then(() => this.setState({ emptyQuery: false }));
         } else {
             this.setState({ emptyQuery: true });
         }
@@ -28,19 +28,17 @@ class Search extends Component {
         } = this.props;
 
         return (
-            <div className="search-books">
+            <div>
                 <SearchBooksBar onSearch={this.onSearch} />
-                <div className="search-books-results">
-                    {
-                        !this.state.emptyQuery && (
-                            <Bookshelf
-                                title={`${searchResults.length || '0'} Results`}
-                                books={searchResults}
-                                onChangeShelf={updateBook}
-                            />
-                        )
-                    }
-                </div>
+                {
+                    !this.state.emptyQuery && (
+                        <Bookshelf
+                            title={`${searchResults.length || '0'} Results`}
+                            books={searchResults}
+                            onChangeShelf={updateBook}
+                        />
+                    )
+                }
             </div>
         );
     }
