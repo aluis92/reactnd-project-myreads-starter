@@ -4,6 +4,7 @@ import {
     func,
     object,
 } from 'prop-types';
+import InfoText from '../../elements/InfoText';
 import SearchBooksBar from '../../modules/SearchBooksBar';
 import Bookshelf from '../../modules/Bookshelf';
 
@@ -23,10 +24,16 @@ class Search extends Component {
 
     render() {
         const {
-            allBooks,
-            searchResults,
-            updateBook,
-        } = this.props;
+            onSearch,
+            state: {
+                emptyQuery,
+            },
+            props: {
+                allBooks,
+                searchResults,
+                updateBook,
+            },
+        } = this;
 
         const searchResultsWithAddedBooks = searchResults.map((searchResult) => {
             const allBookInstance = allBooks.find(book => book.id === searchResult.id);
@@ -41,14 +48,20 @@ class Search extends Component {
 
         return (
             <div>
-                <SearchBooksBar onSearch={this.onSearch} />
+                <SearchBooksBar onSearch={onSearch} />
                 {
-                    !this.state.emptyQuery && (
+                    !emptyQuery && (
                         <Bookshelf
                             title={`${searchResultsWithAddedBooks.length || '0'} Results`}
                             books={searchResultsWithAddedBooks}
                             onChangeShelf={updateBook}
                         />
+                    )
+                }
+
+                {
+                    emptyQuery && (
+                        <InfoText>Type a title or author name to display books...</InfoText>
                     )
                 }
             </div>
