@@ -1,15 +1,59 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {
+    arrayOf,
+    func,
+    object,
+} from 'prop-types';
 import SearchBooksBar from '../../modules/SearchBooksBar';
+import Bookshelf from '../../modules/Bookshelf';
 
-function Search() {
-    return (
-        <div className="search-books">
-            <SearchBooksBar />
-            <div className="search-books-results">
-                <ol className="books-grid" />
+class Search extends Component {
+    state = {
+        emptyQuery: true,
+    }
+
+    onSearch = (query) => {
+        if (query && query.length > 0) {
+            this.props.onSearch(query);
+            this.setState({ emptyQuery: false });
+        } else {
+            this.setState({ emptyQuery: true });
+        }
+    }
+
+    render() {
+        const {
+            searchResults,
+            updateBook,
+        } = this.props;
+
+        return (
+            <div className="search-books">
+                <SearchBooksBar onSearch={this.onSearch} />
+                <div className="search-books-results">
+                    {
+                        !this.state.emptyQuery && (
+                            <Bookshelf
+                                title={`${searchResults.length || '0'} Results`}
+                                books={searchResults}
+                                onChangeShelf={updateBook}
+                            />
+                        )
+                    }
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
+
+Search.defaultProps = {
+    searchResults: [],
+};
+
+Search.propTypes = {
+    onSearch: func.isRequired,
+    searchResults: arrayOf(object),
+    updateBook: func.isRequired,
+};
 
 export default Search;

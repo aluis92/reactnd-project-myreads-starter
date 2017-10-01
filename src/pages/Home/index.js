@@ -39,8 +39,8 @@ Home.defaultProps = {
 Home.propTypes = {
     bookList: shape({
         currentlyReading: array,
-        wantToRead: array,
         read: array,
+        wantToRead: array,
     }),
     updateBook: func.isRequired,
 };

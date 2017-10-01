@@ -13,12 +13,12 @@ import './App.css';
 
 class App extends Component {
     state = {
-        allBooks: [],
         bookList: {
             currentlyReading: [],
             read: [],
             wantToRead: [],
         },
+        searchResults: [],
     }
 
     componentDidMount() {
@@ -36,9 +36,21 @@ class App extends Component {
             .then(() => this.getAllBooks());
     }
 
+    searchBooks = (query) => {
+        BooksAPI.search(query)
+            .then((searchResults) => {
+                if (Array.isArray(searchResults)) {
+                    return searchResults;
+                }
+                return [];
+            })
+            .then(searchResults => this.setState({ searchResults }));
+    }
+
     render() {
         const {
             bookList,
+            searchResults,
         } = this.state;
 
         return (
@@ -57,7 +69,13 @@ class App extends Component {
                     <Route
                         exact
                         path="/search"
-                        component={Search}
+                        render={() => (
+                            <Search
+                                onSearch={this.searchBooks}
+                                searchResults={searchResults}
+                                updateBook={this.updateBook}
+                            />
+                        )}
                     />
                 </div>
             </BrowserRouter>
