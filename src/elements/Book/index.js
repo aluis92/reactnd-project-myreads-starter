@@ -12,10 +12,12 @@ import {
     BookTitle,
     BookTop,
     Container,
+    BookCondition,
 } from './styles';
 
 function Book({
     authors,
+    added,
     id,
     imageLinks,
     onChangeShelf,
@@ -25,7 +27,14 @@ function Book({
         <li>
             <Container className="book">
                 <BookTop>
-                    <BookCover style={{ backgroundImage: `url(${imageLinks.thumbnail})` }} />
+                    <BookCover
+                        style={{ backgroundImage: `url(${imageLinks.thumbnail})` }}
+                    >
+                        {
+                            added &&
+                            <BookCondition>{added}</BookCondition>
+                        }
+                    </BookCover>
                     <ShelfChanger onChangeShelf={value => onChangeShelf(id, value)} />
                 </BookTop>
                 <BookTitle>{title}</BookTitle>
@@ -37,12 +46,14 @@ function Book({
 
 Book.defaultProps = {
     authors: [],
+    added: false,
     imageLinks: {},
     title: '',
 };
 
 Book.propTypes = {
     authors: arrayOf(string),
+    added: string,
     id: string.isRequired,
     imageLinks: shape({
         thumbnail: string,

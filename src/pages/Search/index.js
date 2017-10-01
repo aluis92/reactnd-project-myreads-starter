@@ -6,6 +6,7 @@ import {
 } from 'prop-types';
 import SearchBooksBar from '../../modules/SearchBooksBar';
 import Bookshelf from '../../modules/Bookshelf';
+import parseCamelCase from '../../utils/parseCamelCase';
 
 class Search extends Component {
     state = {
@@ -23,9 +24,21 @@ class Search extends Component {
 
     render() {
         const {
+            allBooks,
             searchResults,
             updateBook,
         } = this.props;
+
+        const searchResultsWithAddedBooks = searchResults.map((searchResult) => {
+            const allBookInstance = allBooks.find(book => book.id === searchResult.id);
+
+            return (
+                {
+                    ...searchResult,
+                    added: allBookInstance ? parseCamelCase(allBookInstance.shelf) : false,
+                }
+            );
+        });
 
         return (
             <div>
@@ -33,8 +46,8 @@ class Search extends Component {
                 {
                     !this.state.emptyQuery && (
                         <Bookshelf
-                            title={`${searchResults.length || '0'} Results`}
-                            books={searchResults}
+                            title={`${searchResultsWithAddedBooks.length || '0'} Results`}
+                            books={searchResultsWithAddedBooks}
                             onChangeShelf={updateBook}
                         />
                     )
@@ -45,11 +58,13 @@ class Search extends Component {
 }
 
 Search.defaultProps = {
+    allBooks: [],
     searchResults: [],
 };
 
 Search.propTypes = {
     onSearch: func.isRequired,
+    allBooks: arrayOf(object),
     searchResults: arrayOf(object),
     updateBook: func.isRequired,
 };

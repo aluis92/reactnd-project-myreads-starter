@@ -28,8 +28,27 @@ export const BookTop = styled.div`
 `;
 
 export const BookCover = styled.div`
+    position: relative;
     width: 128px;
     height: 193px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     background: #eee;
+`;
+
+export const BookCondition = styled.p`
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    bottom: 0;
+    color: white;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    left:0;
+    margin: 0;
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    top: 0;
 `;

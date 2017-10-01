@@ -66,6 +66,7 @@ class App extends Component {
                         path="/search"
                         render={() => (
                             <Search
+                                allBooks={allBooks}
                                 onSearch={this.searchBooks}
                                 searchResults={searchResults}
                                 updateBook={this.updateBook}
