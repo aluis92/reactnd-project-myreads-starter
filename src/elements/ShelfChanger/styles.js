@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import arrowDropDown from '../../assets/icons/arrow-drop-down.svg';
+import spinner from '../../assets/icons/spinner.svg';
 
 export const Container = styled.div`
     position: absolute;
@@ -14,6 +15,12 @@ export const Container = styled.div`
     background-position: center;
     background-size: 20px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    colort: white;
+
+    ${({ isLoading }) => isLoading && css`
+        background-image: url(${spinner});
+        background-size: 30px;
+    `}
 `;
 
 export const Select = styled.select`

@@ -6,7 +6,6 @@ import {
 } from 'prop-types';
 import SearchBooksBar from '../../modules/SearchBooksBar';
 import Bookshelf from '../../modules/Bookshelf';
-import parseCamelCase from '../../utils/parseCamelCase';
 
 class Search extends Component {
     state = {
@@ -35,7 +34,7 @@ class Search extends Component {
             return (
                 {
                     ...searchResult,
-                    added: allBookInstance ? parseCamelCase(allBookInstance.shelf) : false,
+                    added: allBookInstance && allBookInstance.shelf,
                 }
             );
         });

@@ -5,6 +5,7 @@ import {
     string,
 } from 'prop-types';
 import ShelfChanger from '../ShelfChanger';
+import parseCamelCase from '../../utils/parseCamelCase';
 
 import {
     BookAuthors,
@@ -22,6 +23,7 @@ function Book({
     imageLinks,
     onChangeShelf,
     title,
+    shelf,
 }) {
     return (
         <li>
@@ -32,10 +34,13 @@ function Book({
                     >
                         {
                             added &&
-                            <BookCondition>{added}</BookCondition>
+                            <BookCondition>{parseCamelCase(added)}</BookCondition>
                         }
                     </BookCover>
-                    <ShelfChanger onChangeShelf={value => onChangeShelf(id, value)} />
+                    <ShelfChanger
+                        defaultValue={shelf || added}
+                        onChangeShelf={value => onChangeShelf(id, value)}
+                    />
                 </BookTop>
                 <BookTitle>{title}</BookTitle>
                 <BookAuthors>{authors.join(', ')}</BookAuthors>
@@ -46,9 +51,10 @@ function Book({
 
 Book.defaultProps = {
     authors: [],
-    added: false,
+    added: null,
     imageLinks: {},
     title: '',
+    shelf: null,
 };
 
 Book.propTypes = {
@@ -60,6 +66,7 @@ Book.propTypes = {
     }).isRequired,
     title: string.isRequired,
     ...ShelfChanger.propTypes,
+    shelf: string,
 };
 
 export default Book;
