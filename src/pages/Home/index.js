@@ -9,20 +9,20 @@ import Bookshelf from '../../modules/Bookshelf';
 import parseCamelCase from '../../utils/parseCamelCase';
 
 function Home({
-    bookList,
+    bookShelves,
     updateBook,
 }) {
-    const shelves = Object.keys(bookList);
+    const shelves = Object.keys(bookShelves);
 
     return (
         <ListBooks title="MyReads">
             <div>
                 {
-                    shelves.map(shelf => bookList[shelf].length > 0 && (
+                    shelves.map(shelf => bookShelves[shelf].length > 0 && (
                         <Bookshelf
                             key={shelf}
                             title={parseCamelCase(shelf)}
-                            books={bookList[shelf]}
+                            books={bookShelves[shelf]}
                             onChangeShelf={updateBook}
                         />
                     ))
@@ -33,11 +33,11 @@ function Home({
 }
 
 Home.defaultProps = {
-    bookList: null,
+    bookShelves: null,
 };
 
 Home.propTypes = {
-    bookList: shape({
+    bookShelves: shape({
         currentlyReading: array,
         read: array,
         wantToRead: array,

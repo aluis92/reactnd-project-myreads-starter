@@ -11,11 +11,7 @@ import * as BooksAPI from './services/BooksAPI';
 
 class App extends Component {
     state = {
-        bookList: {
-            currentlyReading: [],
-            read: [],
-            wantToRead: [],
-        },
+        allBooks: [],
         searchResults: [],
     }
 
@@ -25,8 +21,7 @@ class App extends Component {
 
     getAllBooks() {
         BooksAPI.getAll()
-            .then(bookshelfFactory)
-            .then(bookList => this.setState({ bookList }));
+            .then(allBooks => this.setState({ allBooks }));
     }
 
     updateBook = (bookId, shelf) => (
@@ -47,9 +42,11 @@ class App extends Component {
 
     render() {
         const {
-            bookList,
+            allBooks,
             searchResults,
         } = this.state;
+
+        const bookShelves = bookshelfFactory(allBooks);
 
         return (
             <BrowserRouter>
@@ -59,7 +56,7 @@ class App extends Component {
                         path="/"
                         render={() => (
                             <Home
-                                bookList={bookList}
+                                bookShelves={bookShelves}
                                 updateBook={this.updateBook}
                             />
                         )}
