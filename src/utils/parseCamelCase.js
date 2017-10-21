@@ -1,7 +1,8 @@
 export default (phrase) => {
-    const parsedPhrase = phrase.replace(/[A-Z]/g, letter => ` ${letter}`);
+    const spacedPhrase =
+        phrase
+            .replace(/[A-Z]/g, letter => ` ${letter}`)
+            .toLowerCase();
 
-    parsedPhrase[0].toUpperCase();
-
-    return parsedPhrase;
+    return spacedPhrase;
 };
