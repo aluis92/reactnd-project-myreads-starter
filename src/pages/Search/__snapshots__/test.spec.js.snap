@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component should render without crashing 1`] = `
+<div>
+  <SearchBooksBar
+    onSearch={[Function]}
+  />
+  <InfoText>
+    Type a title or author name to display books...
+  </InfoText>
+</div>
+`;
