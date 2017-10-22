@@ -16,6 +16,15 @@ To get started developing right away:
 * Testing without coverage `npm test`
 * Testing with coverage `npm run test:coverage`
 
+## Linting
+
+* This project uses eslint with custom [airbnb config](https://www.npmjs.com/package/eslint-config-airbnb) as a lint tool, to start lint run `npm run lint`
+
+## Contributing
+
+* This project uses Udacity git convention, to commit with right conventions run `npm run commit`
+* This project uses a concise timeline, all code pushed to master should be rebased
+
 ## Building
 
 * To build the project for production run `npm run build`
