@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShelfChanger component should render if it has onChangeShelf prop 1`] = `
+<styled.div
+  isLoading={false}
+>
+  <styled.select
+    defaultValue="none"
+    onChange={[Function]}
+  >
+    <option
+      disabled={true}
+      value=""
+    >
+      Move to...
+    </option>
+    <option
+      value="currentlyReading"
+    >
+      Currently Reading
+    </option>
+    <option
+      value="wantToRead"
+    >
+      Want to Read
+    </option>
+    <option
+      value="read"
+    >
+      Read
+    </option>
+    <option
+      value="none"
+    >
+      None
+    </option>
+  </styled.select>
+</styled.div>
+`;
