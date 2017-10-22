@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpenSearch component should render if it has text and to props 1`] = `
+<styled.header>
+  <Styled(Link)
+    to="/"
+  >
+    ok
+  </Styled(Link)>
+</styled.header>
+`;

@@ -7,15 +7,15 @@ import OpenSearch from './index';
 
 describe('OpenSearch component', () => {
     const props = {
-        title: 'ok',
+        text: 'ok',
         to: '/',
     };
 
-    it('should render without crashing', () => {
-        shallow(
+    it('should render if it has text and to props', () => {
+        expect(shallow(
             <OpenSearch
                 {...props}
             />,
-        );
+        )).toMatchSnapshot();
     });
 });
