@@ -35,6 +35,7 @@
         "build": "react-scripts build",
         "commit": "git-cz",
         "test": "react-scripts test --env=jsdom",
+        "test:coverage": "react-scripts test --env=jsdom --coverage",
         "eject": "react-scripts eject",
         "lint": "eslint ./src --fix"
     },
