@@ -6,9 +6,9 @@ import {
 import InfoText from './index';
 
 describe('InfoText component', () => {
-    it('should render without crashing', () => {
-        shallow(
+    it('should render if it has a child', () => {
+        expect(shallow(
             <InfoText>something</InfoText>,
-        );
+        )).toMatchSnapshot();
     });
 });
