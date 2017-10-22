@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListBooks component should render without crashing 1`] = `
+<styled.section>
+  <styled.div>
+    <BookListTitle />
+    <div />
+  </styled.div>
+  <OpenSearch
+    text="Add a book"
+    to="/search"
+  />
+</styled.section>
+`;

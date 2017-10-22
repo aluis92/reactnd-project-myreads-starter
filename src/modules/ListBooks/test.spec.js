@@ -7,6 +7,8 @@ import ListBooks from './index';
 
 describe('ListBooks component', () => {
     it('should render without crashing', () => {
-        shallow(<ListBooks />);
+        expect(shallow(
+            <ListBooks />,
+        )).toMatchSnapshot();
     });
 });
