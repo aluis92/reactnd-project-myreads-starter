@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBooksBar component should render without crashing if it has onSearch prop 1`] = `
+<styled.header>
+  <styled.div>
+    <Styled(Link)
+      to="/"
+    >
+      Close
+    </Styled(Link)>
+    <styled.div>
+      <styled.input
+        onChange={[Function]}
+        placeholder="Search by title or author"
+        type="text"
+      />
+    </styled.div>
+  </styled.div>
+</styled.header>
+`;
