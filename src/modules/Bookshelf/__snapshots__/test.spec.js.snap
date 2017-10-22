@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bookshelf component should render without crashing 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.ol />
+  </styled.div>
+</styled.div>
+`;
