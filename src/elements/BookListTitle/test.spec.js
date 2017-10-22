@@ -6,15 +6,9 @@ import {
 import BookListTitle from './index';
 
 describe('BookListTitle component', () => {
-    const props = {
-        title: 'ok',
-    };
-
-    it('should render without crashing', () => {
-        shallow(
-            <BookListTitle
-                {...props}
-            />,
-        );
+    it('should render if it has a child', () => {
+        expect(shallow(
+            <BookListTitle>something</BookListTitle>,
+        )).toMatchSnapshot();
     });
 });

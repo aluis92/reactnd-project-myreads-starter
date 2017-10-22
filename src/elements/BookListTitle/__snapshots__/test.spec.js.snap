@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookListTitle component should render if it has a child 1`] = `
+<styled.header>
+  <styled.h1>
+    something
+  </styled.h1>
+</styled.header>
+`;
