@@ -33,7 +33,7 @@ function Home({
 }
 
 Home.defaultProps = {
-    bookShelves: null,
+    bookShelves: {},
 };
 
 Home.propTypes = {
@@ -41,7 +41,7 @@ Home.propTypes = {
         currentlyReading: array,
         read: array,
         wantToRead: array,
-    }),
+    }).isRequired,
     updateBook: func.isRequired,
 };
 

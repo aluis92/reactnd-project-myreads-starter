@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component should render without crashing 1`] = `
+<ListBooks
+  title="MyReads"
+>
+  <div />
+</ListBooks>
+`;
