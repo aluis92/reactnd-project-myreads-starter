@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book component should render without crashing 1`] = `
+<li>
+  <styled.div
+    className="book"
+  >
+    <styled.div>
+      <styled.div
+        style={
+          Object {
+            "backgroundImage": "url(undefined)",
+          }
+        }
+      />
+      <ShelfChanger
+        defaultValue={null}
+        onChangeShelf={[Function]}
+      />
+    </styled.div>
+    <styled.h3 />
+    <styled.p />
+  </styled.div>
+</li>
+`;
