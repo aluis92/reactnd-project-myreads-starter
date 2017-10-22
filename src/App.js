@@ -24,21 +24,19 @@ class App extends Component {
             .then(allBooks => this.setState({ allBooks }));
     }
 
-    updateBook = (bookId, shelf) => (
+    updateBook = (bookId, shelf) =>
         BooksAPI.update(bookId, shelf)
             .then(() => this.getAllBooks())
-    )
 
-    searchBooks = query => (
+    searchBooks = query =>
         BooksAPI.search(query)
             .then((searchResults) => {
                 if (Array.isArray(searchResults)) {
-                    return searchResults;
+                    this.setState({ searchResults });
+                } else {
+                    this.setState({ searchResults: [] });
                 }
-                return [];
             })
-            .then(searchResults => this.setState({ searchResults }))
-    )
 
     render() {
         const {
